@@ -19,10 +19,8 @@ Route::get('/', function () {
     // return "hello";
 });
 
-Route::get('/demo', [App\Http\Controllers\UserController::class, 'index']);
+Route::get('/student', [App\Http\Controllers\StudentController::class, 'index']);
 
-Route::get('/test', [App\Http\Controllers\StudentController::class, 'test']);
+// Category
+/*/category*/
 
-//form
-//FormController, hello()
-//hello.blade.php => username,password
