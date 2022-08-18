@@ -12,5 +12,6 @@ class Student extends Model
     // ratata => ratatas
     use HasFactory;
     // Override default table name
-    protected $table = "student";
+    // protected $table = "student";
+     public $timestamps = false;
 }
