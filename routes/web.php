@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,8 +29,14 @@ Route::get('/front', function () {
     return view('frontend');
     // return "hello";
 });
-
+Route::get('/create', function () {
+    return view('create');
+    // return "hello";
+});
+// Route::resource('/students' ,App\Http\Controllers\StudentController::class);
 Route::get('/student', [App\Http\Controllers\StudentController::class, 'index']);
+Route::get('/student/{Student}/edit', [App\Http\Controllers\StudentController::class, 'edit']);
+Route::put('/student/{student}', [App\Http\Controllers\StudentController::class, 'update'])->name('student.update');
 
 // Category
 /*/category*/

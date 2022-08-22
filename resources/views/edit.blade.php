@@ -1,4 +1,4 @@
-
+   
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,6 +91,7 @@ font-size: 20px;
     </style>
 </head>   
 <body>
+    {{-- @dd($student) --}}
    <div class="container">
       <div class="col-md-6 mx-auto text-center">
          <div class="header-title">
@@ -105,16 +106,17 @@ font-size: 20px;
       <div class="row">
          <div class="col-md-4 mx-auto">
             <div class="myform form ">
-               <form method="post" name="login" action="{{ route('student.name') }}">
+               <form method="post" name="login" action="{{ route( 'student.update', $student->id ) }}">
+                @method('PUT')
                 @csrf
                   <div class="form-group">
-                     <input type="text" name="name"  class="form-control my-input" id="name" placeholder="Name">
+                     <input type="text" name="name"  class="form-control my-input" id="name" placeholder="Name" value="{{$student->name}}">
                   </div>
                   <div class="form-group">
-                     <input type="text" name="address"  class="form-control my-input" id="address" placeholder="Thegana">
+                     <input type="text" name="address"  class="form-control my-input" id="address" placeholder="Thegana" value="{{$student->address}}">
                   </div>
                   <div class="form-group">
-                     <input type="number"  name="phone_no" id="phone_no"  class="form-control my-input" placeholder="Phone Number">
+                     <input type="number"  name="phone_no" id="phone_no"  class="form-control my-input" placeholder="Phone Number" value="{{$student->phone_no}}">
                   </div>
                   <div class="text-center ">
                      <button type="submit" class=" btn btn-block send-button tx-tfm">Give us your data</button>

@@ -14,7 +14,7 @@ class AddMarksColToStudentsTable extends Migration
     public function up()
     {
         Schema::table('students', function (Blueprint $table) {
-            $table->string('marks')->after('name');
+            $table->string('marks')->default('100');
         });
     }
 

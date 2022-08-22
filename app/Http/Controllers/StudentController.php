@@ -17,19 +17,44 @@ class StudentController {
     public function store(Request $request){
         // dd($request->all());
         $student = new Student();
-        $student->Name = $request->name;
-        $student->Address = $request->address;
+        $student->name = $request->name;
+        $student->address = $request->address;
+        $student->phone_no = $request->phone_no;
+
         if($student->save()){
             echo 'We have submitted the form Successfully';
         }
         else{
             echo ' Erroor';
         }
+
         
         
 
 
 
+
+    }
+
+    public function edit($id){
+        $student = Student::find($id);
+        return view('edit', compact('student'));
+
+    }
+
+    public function update(Request $request , $id){
+
+        $student = Student::where('id', $id)->firstorFail();
+        $student->name = $request->name;
+        $student->address = $request->address;
+        $student->phone_no = $request->phone_no;
+
+        if($student->save()){
+            echo "Updated Sucessfully";
+        }
+        else
+        echo "error";
+        // dd($request->all());
 
     }
 }
