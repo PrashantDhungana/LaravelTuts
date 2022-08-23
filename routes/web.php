@@ -37,6 +37,15 @@ Route::get('/create', function () {
 Route::get('/student', [App\Http\Controllers\StudentController::class, 'index']);
 Route::get('/student/{Student}/edit', [App\Http\Controllers\StudentController::class, 'edit']);
 Route::put('/student/{student}', [App\Http\Controllers\StudentController::class, 'update'])->name('student.update');
+Route::get('/student/{Student}', [App\Http\Controllers\StudentController::class, 'show'])->name('student.show');
+
+
+//route for student show
+// Route::get('/student/{student}', [App\Http\Controllers\StudentController::class, 'show']);
+
+//route for delete student
+// Route::delete('/student/{student}', [App\Http\Controllers\StudentController::class, 'destroy'])->name('student.destroy');
+
 
 // Category
 /*/category*/

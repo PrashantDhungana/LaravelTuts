@@ -57,4 +57,19 @@ class StudentController {
         // dd($request->all());
 
     }
+    public function show($id){
+        $student = Student::find($id);
+        // dd($student);
+        return view('show', compact('student'));
+
+
+
+    }
+  
+
+
+
+
+
+
 }
