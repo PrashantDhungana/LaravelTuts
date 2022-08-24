@@ -14,24 +14,31 @@ class StudentController {
         return view('index', compact('students'));
         // die and dump
     } 
+
+    //Store 2 function :
+    // 1. Load form: create()
+    // 2. Saves data to db from form : store()
+
+    // 
+
+    public function create()
+    {
+        return view('create');
+    }
+
     public function store(Request $request){
-        // dd($request->all());
+        
         $student = new Student();
         $student->name = $request->name;
         $student->address = $request->address;
         $student->phone_no = $request->phone_no;
 
         if($student->save()){
-            echo 'We have submitted the form Successfully';
+            return redirect('/student')->with('success', 'Successfully inserted'); 
         }
         else{
-            echo ' Erroor';
+            return redirect('/student')->with('error', 'There was an error'); 
         }
-
-        
-        
-
-
 
 
     }

@@ -13,9 +13,9 @@ class AddMarksColToStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::table('students', function (Blueprint $table) {
-            $table->string('marks')->default('100');
-        });
+        // Schema::table('students', function (Blueprint $table) {
+        //     $table->string('marks')->default('100');
+        // });
     }
 
     /**
@@ -25,8 +25,8 @@ class AddMarksColToStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::table('students', function (Blueprint $table) {
-            $table->dropColumn('marks');
-        });
+        // Schema::table('students', function (Blueprint $table) {
+        //     $table->dropColumn('marks');
+        // });
     }
 }

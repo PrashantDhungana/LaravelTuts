@@ -19,26 +19,19 @@ Route::get('/', function () {
     return view('welcome');
     // return "hello";
 });
-Route::get('/hello', function () {
-    return view('hello');
-    // return "hello";
-});
-Route::post('/hello',[App\Http\Controllers\StudentController::class,'store'])->name('student.name');
 
-Route::get('/front', function () {
-    return view('frontend');
-    // return "hello";
-});
-Route::get('/create', function () {
-    return view('create');
-    // return "hello";
-});
+
 // Route::resource('/students' ,App\Http\Controllers\StudentController::class);
 Route::get('/student', [App\Http\Controllers\StudentController::class, 'index']);
+Route::get('/student/create', [App\Http\Controllers\StudentController::class, 'create']);
+Route::post('/student',[App\Http\Controllers\StudentController::class,'store'])->name('student.name');
 Route::get('/student/{Student}/edit', [App\Http\Controllers\StudentController::class, 'edit']);
 Route::put('/student/{student}', [App\Http\Controllers\StudentController::class, 'update'])->name('student.update');
 Route::get('/student/{Student}', [App\Http\Controllers\StudentController::class, 'show'])->name('student.show');
 
+Route::get('/image', function(){
+    return view('image');
+});
 
 //route for student show
 // Route::get('/student/{student}', [App\Http\Controllers\StudentController::class, 'show']);
