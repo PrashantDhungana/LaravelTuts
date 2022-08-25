@@ -65,11 +65,24 @@ class StudentController {
 
     }
     public function show($id){
+
         $student = Student::find($id);
         // dd($student);
         return view('show', compact('student'));
 
 
+
+    }
+
+    public function destroy($id)
+    {
+        $student = Student::find($id);
+        if($student->delete())
+        {
+            return redirect('/student')->with('success', 'Record deleted successfully');
+        }
+        else    
+            return redirect('/student')->with('error', 'There was an error deleting the record.');
 
     }
   

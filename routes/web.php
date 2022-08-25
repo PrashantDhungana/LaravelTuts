@@ -25,19 +25,17 @@ Route::get('/', function () {
 Route::get('/student', [App\Http\Controllers\StudentController::class, 'index']);
 Route::get('/student/create', [App\Http\Controllers\StudentController::class, 'create']);
 Route::post('/student',[App\Http\Controllers\StudentController::class,'store'])->name('student.name');
-Route::get('/student/{Student}/edit', [App\Http\Controllers\StudentController::class, 'edit']);
 Route::put('/student/{student}', [App\Http\Controllers\StudentController::class, 'update'])->name('student.update');
-Route::get('/student/{Student}', [App\Http\Controllers\StudentController::class, 'show'])->name('student.show');
+
+
 
 Route::get('/image', function(){
     return view('image');
 });
 
-//route for student show
-// Route::get('/student/{student}', [App\Http\Controllers\StudentController::class, 'show']);
-
-//route for delete student
-// Route::delete('/student/{student}', [App\Http\Controllers\StudentController::class, 'destroy'])->name('student.destroy');
+Route::delete('/student/{student}', [App\Http\Controllers\StudentController::class, 'destroy'])->name('student.destroy');
+Route::get('/student/{Student}', [App\Http\Controllers\StudentController::class, 'show'])->name('student.show');
+Route::get('/student/{Student}/edit', [App\Http\Controllers\StudentController::class, 'edit']);
 
 
 // Category

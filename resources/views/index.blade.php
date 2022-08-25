@@ -26,12 +26,26 @@
         <thead>
             <th>id</th>
             <th>name</th>
+            <th>Actions</th>
         </thead>
         <tbody>
            @foreach ($students as $student)    
             <tr>
                 <td>{{ $student->id  }}</td>
                 <td>{{ $student->name }}</td>
+                <td>
+                    <!-- GET -->
+                    <a href="/student/{{ $student->id }}" class="btn btn-primary">Show</a>
+                    <a href="/student/{{ $student->id }}/edit" class="btn btn-success">Edit</a>
+                    
+                    <!-- POST, PUT, DELETE -->
+                    <form action="/student/{{ $student->id }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+
+                </td>
             </tr>
             @endforeach
            
