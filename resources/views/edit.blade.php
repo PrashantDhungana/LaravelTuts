@@ -91,8 +91,14 @@ font-size: 20px;
     </style>
 </head>   
 <body>
-    {{-- @dd($student) --}}
-   <div class="container">
+    @if (session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+
+    @if (session('error'))
+        <div class="alert alert-danger">{{ session('error') }}</div>
+    @endif
+      <div class="container">
       <div class="col-md-6 mx-auto text-center">
          <div class="header-title">
             <h1 class="wv-heading--title">

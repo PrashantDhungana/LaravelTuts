@@ -2,125 +2,163 @@
 <html lang="en">
 
 <head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+    @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700');
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+*:hover{
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+section{
+    float:left;
+    width:100%;
+    background: #fff;  /* fallback for old browsers */
+    padding:30px 0;
+}
+h1{float:left; width:100%; color:#232323; margin-bottom:50px; font-size: 14px;}
+h1 span{font-family: 'Libre Baskerville', serif; display:block; font-size:45px; text-transform:none; margin-bottom:20px; margin-top:30px; font-weight:700}
+h1 a{color:#131313; font-weight:bold;}
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramro Form</title>
 
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <style>
-        .send-button {
-            background: #54C7C3;
-            width: 100%;
-            font-weight: 600;
-            color: #fff;
-            padding: 8px 25px;
-        }
 
-        input[type=number]::-webkit-inner-spin-button,
-        input[type=number]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
+/*Profile Card 3*/
+.profile-card-3 {
+  font-family: 'Open Sans', Arial, sans-serif;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  height:368px;
+  border:none;
+}
+.profile-card-3 .background-block {
+    float: left;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+.profile-card-3 .background-block .background {
+  width:100%;
+  vertical-align: top;
+  opacity: 0.9;
+  -webkit-filter: blur(0.5px);
+  filter: blur(0.5px);
+   -webkit-transform: scale(1.8);
+  transform: scale(2.8);
+}
+.profile-card-3 .card-content {
+  width: 100%;
+  padding: 15px 25px;
+  color:#232323;
+  float:left;
+  background:#efefef;
+  height:50%;
+  border-radius:0 0 5px 5px;
+  position: relative;
+  z-index: 9999;
+}
+.profile-card-3 .card-content::before {
+    content: '';
+    background: #efefef;
+    width: 120%;
+    height: 100%;
+    left: 11px;
+    bottom: 51px;
+    position: absolute;
+    z-index: -1;
+    transform: rotate(-13deg);
+}
+.profile-card-3 .profile {
+  border-radius: 50%;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  max-width: 100px;
+  opacity: 1;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 1);
+  -webkit-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+  z-index:99999;
+}
+.profile-card-3 h2 {
+  margin: 0 0 5px;
+  font-weight: 600;
+  font-size:25px;
+}
+.profile-card-3 h2 small {
+  display: block;
+  font-size: 15px;
+  margin-top:10px;
+}
+.profile-card-3 i {
+  display: inline-block;
+    font-size: 16px;
+    color: #232323;
+    text-align: center;
+    border: 1px solid #232323;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    margin:0 5px;
+}
+.profile-card-3 .icon-block{
+    float:left;
+    width:100%;
+    margin-top:15px;
+}
+.profile-card-3 .icon-block a{
+    text-decoration:none;
+}
+.profile-card-3 i:hover {
+  background-color:#232323;
+  color:#fff;
+  text-decoration:none;
+}
 
-        .g-button {
-            color: #fff !important;
-            border: 1px solid #EA4335;
-            background: #ea4335 !important;
-            width: 100%;
-            font-weight: 600;
-            color: #fff;
-            padding: 8px 25px;
-        }
 
-        .my-input {
-            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-            cursor: text;
-            padding: 8px 10px;
-            transition: border .1s linear;
-        }
 
-        .header-title {
-            margin: 5rem 0;
-        }
-
-        h1 {
-            font-size: 31px;
-            line-height: 40px;
-            font-weight: 600;
-            color: #4c5357;
-        }
-
-        h2 {
-            color: #5e8396;
-            font-size: 21px;
-            line-height: 32px;
-            font-weight: 400;
-        }
-
-        .login-or {
-            position: relative;
-            color: #aaa;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-
-        .span-or {
-            display: block;
-            position: absolute;
-            left: 50%;
-            top: -2px;
-            margin-left: -25px;
-            background-color: #fff;
-            width: 50px;
-            text-align: center;
-        }
-
-        .hr-or {
-            height: 1px;
-            margin-top: 0px !important;
-            margin-bottom: 0px !important;
-        }
-
-        @media screen and (max-width:480px) {
-            h1 {
-                font-size: 26px;
-            }
-
-            h2 {
-                font-size: 20px;
-            }
-        }
-    </style>
-</head>
-
+</style>
 <body>
-    {{-- @dd($student) --}}
-    <div class="container mt-5">
-        <div class="row justify-content-center" >
-            <div class="card">
-                <div class="card-header bg-info text-white " style="font-size: 20px; font-weight:700">
-                  Show for Student
-                </div>
-                <div class="card-body" style="border: 2px solid #737380; background-color: #109cab; color:white;">
-                  <h5 class="card-title">Hello there, {{ $student->name }} </h5>
-                  <p class="card-text">Name: {{ $student->name }}</p>
-                  <p class="card-text">Address: {{ $student->address }}</p>
-                  <p class="card-text">Phone Number: {{ $student->phone_no }}</p>
-                  
-                 
-                </div>
-              </div>
-        </div>
-     
-    </div>
-</body>
 
+
+<section>
+    <div class="container">
+    	<div class="row">
+    	    
+    		
+    		<div class="col-md-4">
+    		    <div class="card profile-card-3">
+    		        <div class="background-block">
+    		            <img src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="profile-sample1" class="background"/>
+    		        </div>
+    		        <div class="profile-thumb-block">
+    		            <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="profile-image" class="profile"/>
+    		        </div>
+    		        <div class="card-content">
+                    <h2>{{ $student->name }}<small>Lives in {{ $student->address }}</small><small>Contact : {{ $student->phone_no }}</small></h3>
+                    <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
+                    </div>
+                </div>
+                
+    		</div>
+    		
+    		
+    		
+    		
+    		
+    	</div>
+    </div>
+</section>
+</body>
+    
 </html>

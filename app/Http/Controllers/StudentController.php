@@ -46,23 +46,26 @@ class StudentController {
     public function edit($id){
         $student = Student::find($id);
         return view('edit', compact('student'));
-
+     
+        
+        
     }
-
+    
     public function update(Request $request , $id){
-
+        
         $student = Student::where('id', $id)->firstorFail();
         $student->name = $request->name;
         $student->address = $request->address;
         $student->phone_no = $request->phone_no;
+        
 
-        if($student->save()){
-            echo "Updated Sucessfully";
+        if($student->update()){
+            return redirect('/student')-> with ('success', 'Successfully edited the Student data with id '); 
         }
-        else
-        echo "error";
-        // dd($request->all());
-
+        else{
+            return redirect('/student')->with('error', 'There was an error while editing the data'); 
+        }
+        
     }
     public function show($id){
 
