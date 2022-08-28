@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,27 +16,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-    // return "hello";
-});
+Route::get('/student/hello', [StudentController::class, 'prashant']);
+Route::resource('/student', StudentController::class);
 
 
-// Route::resource('/students' ,App\Http\Controllers\StudentController::class);
-Route::get('/student', [App\Http\Controllers\StudentController::class, 'index']);
-Route::get('/student/create', [App\Http\Controllers\StudentController::class, 'create']);
-Route::post('/student',[App\Http\Controllers\StudentController::class,'store'])->name('student.name');
-Route::put('/student/{student}', [App\Http\Controllers\StudentController::class, 'update'])->name('student.update');
+// Route::get('/', function () {
+//     return view('welcome');
+//     // return "hello";
+// });
+
+
+// // Route::resource('/students' ,App\Http\Controllers\StudentController::class);
+// Route::get('/student', [App\Http\Controllers\StudentController::class, 'index']);
+// Route::get('/student/create', [App\Http\Controllers\StudentController::class, 'create']);
+// Route::post('/student',[App\Http\Controllers\StudentController::class,'store'])->name('student.name');
+// Route::put('/student/{student}', [App\Http\Controllers\StudentController::class, 'update'])->name('student.update');
 
 
 
-Route::get('/image', function(){
-    return view('image');
-});
+// Route::get('/image', function(){
+//     return view('image');
+// });
 
-Route::delete('/student/{student}', [App\Http\Controllers\StudentController::class, 'destroy'])->name('student.destroy');
-Route::get('/student/{Student}', [App\Http\Controllers\StudentController::class, 'show'])->name('student.show');
-Route::get('/student/{Student}/edit', [App\Http\Controllers\StudentController::class, 'edit']);
+// Route::delete('/student/{student}', [App\Http\Controllers\StudentController::class, 'destroy'])->name('student.destroy');
+// Route::get('/student/{Student}', [App\Http\Controllers\StudentController::class, 'show'])->name('student.show');
+// Route::get('/student/{Student}/edit', [App\Http\Controllers\StudentController::class, 'edit']);
 
 
 // Category

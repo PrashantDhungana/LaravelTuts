@@ -26,6 +26,7 @@
         <thead>
             <th>id</th>
             <th>name</th>
+            <th>image</th>
             <th>Actions</th>
         </thead>
         <tbody>
@@ -33,6 +34,14 @@
             <tr>
                 <td>{{ $student->id  }}</td>
                 <td>{{ $student->name }}</td>
+                <td><img 
+                @if ($student->image)
+                src="
+                /images/{{ $student->image }}
+                "
+                @endif
+                
+                 height="50" width="50" alt="an image"></td>
                 <td>
                     <!-- GET -->
                     <a href="/student/{{ $student->id }}" class="btn btn-primary">Show</a>

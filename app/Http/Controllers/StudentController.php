@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class StudentController {
 
@@ -27,8 +28,29 @@ class StudentController {
     }
 
     public function store(Request $request){
+
+        $request->validate([
+            'profile' => ['mimes:png']
+        ],
+        [
+
+            'profile.mimes' => "Only accept png"
+        ]
+    );
+
+        // Store the uploaded img to a folder
+        if($request->file('profile'))
+        {
+            $file= $request->file('profile');
+            $filename= uniqid().Str::random(10).'.'.$file->getClientOriginalExtension();
+            $file-> move(public_path('/images'), $filename);
+        }
+        
+        
         
         $student = new Student();
+        // Store the image name to database
+        $student->image = $filename;
         $student->name = $request->name;
         $student->address = $request->address;
         $student->phone_no = $request->phone_no;
@@ -84,6 +106,11 @@ class StudentController {
         else    
             return redirect('/student')->with('error', 'There was an error deleting the record.');
 
+    }
+
+    public function prashant()
+    {
+        return "Prashant";
     }
   
 

@@ -102,19 +102,27 @@ font-size: 20px;
             </h2>
          </div>
       </div>
+      @error('profile')
+         <div class="alert alert-danger">{{ $message }}</div>
+      @enderror
       <div class="row">
          <div class="col-md-4 mx-auto">
             <div class="myform form ">
-               <form method="post" name="login" action="{{ route('student.name') }}">
+               <form method="post" name="login" action="{{ route('student.store') }}" enctype="multipart/form-data">
                 @csrf
                   <div class="form-group">
-                     <input type="text" name="name"  class="form-control my-input" id="name" placeholder="Name">
+                     <input type="text" name="name"  class="form-control my-input" id="name" placeholder="Name" 
+                     value="{{ old('name') }}">
                   </div>
                   <div class="form-group">
-                     <input type="text" name="address"  class="form-control my-input" id="address" placeholder="Thegana">
+                     <input type="text" name="address"  class="form-control my-input" id="address" placeholder="Thegana"
+                     value="{{ old('address') }}">
                   </div>
                   <div class="form-group">
                      <input type="number"  name="phone_no" id="phone_no"  class="form-control my-input" placeholder="Phone Number">
+                  </div>
+                  <div class="form-group">
+                     <input type="file" name="profile" accept="image/*">
                   </div>
                   <div class="text-center ">
                      <button type="submit" class=" btn btn-block send-button tx-tfm">Give us your data</button>
