@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Str;
 
 class StudentController {
@@ -29,33 +30,38 @@ class StudentController {
 
     public function store(Request $request){
 
-        $request->validate([
-            'profile' => ['mimes:png']
-        ],
-        [
+    //   $request->validate([
+    //         'profile' => ['mimes:png']
+    //     ],
+    //     [
 
-            'profile.mimes' => "Only accept png"
-        ]
-    );
+    //         'profile.mimes' => "Only accept png"
+    //     ],
+        
+    // );
+    $student = new Student();
 
-        // Store the uploaded img to a folder
-        if($request->file('profile'))
-        {
-            $file= $request->file('profile');
-            $filename= uniqid().Str::random(10).'.'.$file->getClientOriginalExtension();
-            $file-> move(public_path('/images'), $filename);
-        }
+        //  Store the uploaded img to a folder
+        //  if($request->file('profile'))
+        //  {
+        //      $file= $request->file('profile');
+        //      $filename= uniqid().Str::random(10).'.'.$file->getClientOriginalExtension();
+        //      $student->image = $filename;
+        //      $file-> move(public_path('/images'), $filename);
+        //  }
         
         
-        
-        $student = new Student();
+     
         // Store the image name to database
-        $student->image = $filename;
-        $student->name = $request->name;
-        $student->address = $request->address;
-        $student->phone_no = $request->phone_no;
+        // $student->name = $request->name;
+        // $student->address = $request->address;
+        // $student->phone_no = $request->phone_no;
 
-        if($student->save()){
+        // if($student->save()){
+        //  if($student->create($request->all)){(yo raakhyo vane vulnerable hunxa user le j pathayepani linxa but model ko guarded le nachaine faldenxa)
+         
+            // @dd($request->all());
+            if($student->create($request ->validated())) {
             return redirect('/student')->with('success', 'Successfully inserted'); 
         }
         else{
@@ -73,8 +79,8 @@ class StudentController {
 
     public function update(Request $request , $id){
 
-        $student = Student::where('id', $id)->firstorFail();
-        $student->name = $request->name;
+        $student= Student::where('id', $id)->firstorFail();
+        $students->name = $request->name;
         $student->address = $request->address;
         $student->phone_no = $request->phone_no;
 
@@ -112,6 +118,7 @@ class StudentController {
     {
         return "Prashant";
     }
+}
   
 
 
@@ -119,4 +126,3 @@ class StudentController {
 
 
 
-}

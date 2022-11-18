@@ -11,7 +11,12 @@ class Student extends Model
     // category => categories
     // ratata => ratatas
     use HasFactory;
+
+    // protected $fillable=['image','name','address','phone_no'];
+     protected $guarded=['id'];
+
     // Override default table name
     // protected $table = "student";
      public $timestamps = false;
+    
 }

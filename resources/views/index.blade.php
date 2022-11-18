@@ -30,9 +30,9 @@
             <th>Actions</th>
         </thead>
         <tbody>
-           @foreach ($students as $student)    
+           @foreach($students as $student)    
             <tr>
-                <td>{{ $student->id  }}</td>
+                <td>{{$student->id}}</td>
                 <td>{{ $student->name }}</td>
                 <td><img 
                 @if ($student->image)

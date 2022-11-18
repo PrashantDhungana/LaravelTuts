@@ -119,7 +119,7 @@ font-size: 20px;
                      value="{{ old('address') }}">
                   </div>
                   <div class="form-group">
-                     <input type="number"  name="phone_no" id="phone_no"  class="form-control my-input" placeholder="Phone Number">
+                     <input type="number" max="10" name="phone_no" id="phone_no"  class="form-control my-input" placeholder="Phone Number">
                   </div>
                   <div class="form-group">
                      <input type="file" name="profile" accept="image/*">
