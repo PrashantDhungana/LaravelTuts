@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
+   // view blog
    public function index(){
     $blogs=Blog::all();
    return view('blog.admin.blogadm',compact('blogs'));
